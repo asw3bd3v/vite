@@ -1,7 +1,5 @@
-//import './src/assets/06.sass';
+import data from './src/assets/07.json';
+import { name, age } from './src/assets/07.json';
 
-import styles from './src/assets/06.module.sass';
-
-console.log(styles);
-
-document.body.className = styles.wrapper;
+console.log(data); // {name: 'John', age: 40}
+console.log(name, age) // John 40
