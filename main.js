@@ -1,5 +1,13 @@
-import data from './src/assets/07.json';
-import { name, age } from './src/assets/07.json';
+//import imageUrl from './src/assets/img/javascript.svg';
 
-console.log(data); // {name: 'John', age: 40}
-console.log(name, age) // John 40
+//console.log(imageUrl);
+
+//document.getElementById('image').src = imageUrl;
+
+// import url from './src/assets/07.json?url';
+
+// console.log(url); // /src/assets/07.json
+
+import image from './src/assets/img/javascript.svg?raw';
+
+console.log(image);
