@@ -15,6 +15,9 @@ export default {
         Inspect(),
         checker({
             typescript: true,
+            eslint: {
+                lintCommand: 'eslint "./**/*.{ts,tsx}"'
+            }
         })
     ]
 }
