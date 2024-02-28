@@ -22,6 +22,11 @@ export default {
                 return `${name}.${format}`;
             },
             //fileName: 'pluck', // название файла после сборки
+        },
+        rollupOptions: {
+            external: [
+                'collect.js',
+            ]
         }
     }
 };
