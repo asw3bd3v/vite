@@ -1,5 +1,5 @@
-import { pluckAndLog } from "pluck";
-import { log } from "pluck/log";
+import { pluckAndLog } from "@asw3bd3v/pluck";
+import { log } from "@asw3bd3v/pluck/log";
 
 const users = [
   {

@@ -1,8 +1,10 @@
 {
-	"name": "pluck",
-	"private": true,
-	"version": "0.0.0",
+	"name": "@asw3bd3v/pluck",
+	"version": "1.0.1",
 	"type": "module",
+	"files": [
+		"dist"
+	],
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"exports": {
@@ -23,5 +25,8 @@
 	"devDependencies": {
 		"vite": "^4.4.5",
 		"vite-plugin-inspect": "^0.8.3"
+	},
+	"peerDependencies": {
+		"collect.js": "^4.36.1"
 	}
 }

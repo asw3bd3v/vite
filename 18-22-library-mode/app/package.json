@@ -13,6 +13,6 @@
     "vite-plugin-inspect": "^0.8.3"
   },
   "dependencies": {
-    "collect.js": "^4.36.1"
+    "@asw3bd3v/pluck": "^1.0.1"
   }
 }
