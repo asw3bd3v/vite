@@ -24,7 +24,7 @@ export default () => {
         // id - путь до модуля
         transform(src, id) {
             const showColumns = config.command === 'serve'
-            
+
             if (/\.csv$/.test(id)) {
                 const records = parse(src, { columns: showColumns });
 
@@ -33,8 +33,28 @@ export default () => {
                 }
             }
         },
-        transformIndexHtml(html) {
+        /* transformIndexHtml(html) {
             return html.replace(/<\/body>/, `<script>console.log("from transformIndexHtml");</script></body>`)
-        }
+        }, */
+
+        // Данный хук будет вызываться каждый раз, когда мы будем модифицировать файлы
+        // импортируемых модулей. Т.е. будем отправлять уведомление бразуеру через сокет
+        // соединение context.server.ws.send(...).
+        async handleHotUpdate(context,) {
+            if (/\.csv$/.test(context.file)) {
+                context.server.ws.send({
+                    type: 'custom',
+                    event: 'csv-update',
+                    data: {
+                        url: context.modules[0].url,
+                        data: parse(await context.read(), { columns: true }),
+                    },
+                });
+
+                // Отправляем пустой массив, чтобы сообщить vite, что мы будем сами
+                // обрабатывать горячую замену модулей.
+                return [];
+            }
+        },
     }
 };
