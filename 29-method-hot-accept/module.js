@@ -1,13 +1,5 @@
-# Метод hot.accept()
+import './submodule';
 
-Копируем данные из папки 28-client-server-interaction.
-
-Рассмотрим, как можно реализовать горячую замену модулей только для javascript-файлов.
-
-Создаем javascript модуль module.js.
-
-```js
-// module.js
 export const message = 'message from module.js';
 
 export default 'default message from module.js';
@@ -24,5 +16,12 @@ if (import.meta.hot) {
             console.log(updatedModule);
         }
     });
+
+    import.meta.hot.accept(['./submodule'], ([newSubmodule]) => {
+        // если в submodule.js будет синтаксическая ошибка, то в newSubmodule
+        // придет undefined
+        if (newSubmodule) {
+            console.log(newSubmodule);
+        }
+    });
 }
-```

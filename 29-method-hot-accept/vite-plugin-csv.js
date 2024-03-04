@@ -57,7 +57,7 @@ export default () => {
             }
         },
 
-        configureServer(server) {
+        /* configureServer(server) {
             server.ws.on('connection', () => {
                 server.ws.send('connected', 'Connection established');
             });
@@ -68,6 +68,6 @@ export default () => {
 
                 client.send('pong', 'Hello client');
             });
-        },
+        }, */
     }
 };

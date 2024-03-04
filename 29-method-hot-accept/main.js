@@ -1,11 +1,12 @@
-import products from './products.csv';
+//import products from './products.csv';
+import './module';
 
-console.log(products);
+/* console.log(products);
 
-document.querySelector('pre').textContent = JSON.stringify(products);
+document.querySelector('pre').textContent = JSON.stringify(products); */
 
 if (import.meta.hot) { // данный код выполняется только в режиме разработки
-    import.meta.hot.on('csv-update', ({ data, url }) => {
+    /* import.meta.hot.on('csv-update', ({ data, url }) => {
         console.log(`[vite] hot updated: ${url}`);
         document.querySelector('pre').textContent = JSON.stringify(data);
     });
@@ -20,6 +21,8 @@ if (import.meta.hot) { // данный код выполняется тольк�
 
     import.meta.hot.on('pong', (message) => {
         console.log(message);
-    });
+    }); */
+
+
 
 }
