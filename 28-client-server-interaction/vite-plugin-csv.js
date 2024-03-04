@@ -56,5 +56,18 @@ export default () => {
                 return [];
             }
         },
+
+        configureServer(server) {
+            server.ws.on('connection', () => {
+                server.ws.send('connected', 'Connection established');
+            });
+
+            // client - сокет соединение
+            server.ws.on('ping', (message, client) => {
+                console.log(message);
+
+                client.send('pong', 'Hello client');
+            });
+        },
     }
 };
