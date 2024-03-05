@@ -6,6 +6,22 @@ export default 'default message from module.js';
 
 console.log('log from module.js');
 
+let styles;
+
+function addStylesheet() {
+    styles = document.createElement('style');
+
+    styles.innerHTML = 'body {background: indigo; color: white;}';
+
+    document.head.appendChild(styles);
+}
+
+function removeStylesheet() {
+    styles.remove();
+}
+
+addStylesheet();
+
 // Если бы мы не использовали вызов метода accept, то при обновлении данного файла
 //  произошла бы полная перезагрузка страницы.
 if (import.meta.hot) {
@@ -23,5 +39,22 @@ if (import.meta.hot) {
         if (newSubmodule) {
             console.log(newSubmodule);
         }
+    });
+
+    import.meta.hot.dispose(() => {
+        removeStylesheet();
+    });
+
+    // добавляем события для hot
+    import.meta.hot.on('vite:beforeUpdate', (data) => {
+        console.log('before update', data);
+    });
+
+    import.meta.hot.on('vite:afterUpdate', (data) => {
+        console.log('after update', data);
+    });
+
+    import.meta.hot.on('vite:error', (data) => {
+        console.log('error', data);
     });
 }
